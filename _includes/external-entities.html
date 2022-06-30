@@ -2,7 +2,7 @@
     <div class="card-content">
       <div class="media">
         <div class="media-content entity-card-meta">
-            
+
             <figure class="image is-128x128">
                 <a href="{{ entity.website }}">
                 {% if entity.logo %}
@@ -10,13 +10,13 @@
                 {% endif %}
                 </a>
             </figure>
-            
+
             <p class="title is-4">
                 {{ entity.name }}
             </p>
         </div>
       </div>
-  
+
       <div class="entity-description">
         <p class="entity-description-question">
           <a class="card-toggle">
@@ -25,9 +25,12 @@
           </a>
         </p>
         <div class="content is-hidden">
+            {% if details %}
+            {{ details | markdownify }}
+            {% else %}
             {{ entity.description | markdownify }}
+            {% endif %}
         </div>
       </div>
     </div>
   </div>
-  
